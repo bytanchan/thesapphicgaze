@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+@font-face {
+  font-family: Bebas Neue;
+  src: url(BebasNeue-Regular.otf)
+}
+
+:root {
+  --primary-color: #0a0a0a;
+  --secondary-color: #ffffff;
+}
+
+html {
+  font-family: Bebas Neue, Arial, Helvetica, sans-serif;
+  font-size:  24px;
+  line-height: 1;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+a.button {
+  display: inline-block;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  padding: 0.25rem 0.75rem 0.15rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+section.sneaker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+section.new-drop {
+  min-height: calc(100vh - 4rem);
+  padding: 2rem;
+  display: flex;
+  align-items: end;
+}
+
+section.new-drop img {
+  width: 100%;
+}
+
+section.content {
+  padding: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  font-size: 2rem;
+  font-family: "Instrument Serif", Arial, sans-serif;
+  margin: 3rem 0 5rem 0;
+  z-index: 2;
+}
+
+/* Target the image in the content section */
+section.content img {
+  max-width: 50%;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transitions */
+}
+
+/* Apply hover effect when mouse is over the image */
+section.content img:hover { 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  /* Shadow on hover */
+  transform: translateY(-5px);  /* Move slightly up on hover */
+}
+
+section.content p {
+  position: relative;
+  z-index: 2;
+}
+
+div.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 2rem;
+  font-size: 6rem;
+
+  display: flex;
+  align-items: end;
+}
+
+.movie-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+

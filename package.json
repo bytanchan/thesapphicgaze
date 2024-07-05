@@ -1,0 +1,19 @@
+{
+  "name": "normal-sneakers",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "motion": "^10.18.0",
+    "three": "^0.166.1"
+  }
+}
