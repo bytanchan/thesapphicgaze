@@ -92,11 +92,11 @@ section.content {
   padding: 6rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
   font-size: 2rem;
   font-family: "Instrument Serif", Arial, sans-serif;
-  margin: 3rem 0 5rem 0;
+  margin: 0 auto;  /* Center the container */
   z-index: 2;
+
 }
 
 /* Target the image in the content section */

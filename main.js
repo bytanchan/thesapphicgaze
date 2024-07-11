@@ -11,7 +11,7 @@ import {
     WebGLRenderer,
 } from 'three'
 
-
+/*
 // MOVIE GENERATOR
 
 // main.js
@@ -40,7 +40,7 @@ const displayRandomMovies = async () => {
 document.addEventListener('DOMContentLoaded', displayRandomMovies);
 
 
-
+*/
 
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -106,38 +106,38 @@ camera.add(backLight)
 
 scene.add(camera)
 
+// ... scene, camera, renderer, light setup ...
+const gltfLoader = new GLTFLoader();
+const loadGroup = new Group();
+loadGroup.position.y = -20;
+
+const scrollGroup = new Group();
+scrollGroup.add(loadGroup);
+
+
 // OBJECT IMPORT
-const gltfLoader = new GLTFLoader()
-
-const loadGroup = new Group()
-loadGroup.position.y = -20
-
-const scrollGroup = new Group()
-scrollGroup.add(loadGroup)
-
 gltfLoader.load("cherries.glb", (gltf) => {
-    loadGroup.add(gltf.scene)
+  loadGroup.add(gltf.scene);
 
-    // Ensure loadGroup animation only after object is loaded
-    animate((t) => {
-        loadGroup.position.y = -20 + 17.5 * t
-    }, { duration: 2, delay: 1 })
+  // ANIMATION FOR CHERRY
+  animate((t) => {
+    loadGroup.position.y = -20 + 17.5 * t;
+  }, { duration: 2, delay: 1 });
 
-animate("div.loader", {
+  // LOADER ANIMATION
+  animate("div.loader", {
     y: "-100%",
-}, { duration: 1, delay: 1 })
+  }, { duration: 1, delay: 1 });
 
-}, (xhr) => {
-    const p = Math.round(( xhr.loaded / xhr.total * 100 ))
-    loaderTag.querySelector("span").innerHTML = p + '%' 
-}, (error) => {
-    console.error(error)
-}
-
-
-)
-
-scene.add( scrollGroup );
+  scene.add(scrollGroup); // Add the model group after it's loaded
+}, 
+  (xhr) => {
+      // progress tracking...
+  },
+  (error) => {
+      console.error('Error loading GLB model:', error);
+  }
+);
 
 // CONTROLS
 const controls = new OrbitControls(camera, renderer.domElement)
